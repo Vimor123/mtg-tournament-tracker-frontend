@@ -1,0 +1,41 @@
+.login-title {
+    font-size: 2em;
+    margin: 1em;
+}
+
+.form-field {
+    margin: 1em;
+}
+
+input[type=text] {
+    border: 4px solid #7E5397;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    width: 460px;
+    font-size: 2em;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+input[type=password] {
+    border: 4px solid #7E5397;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    width: 460px;
+    font-size: 2em;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.btn {
+    font-size: 2em;
+    border: 4px solid #7E5397;
+    background-color: #7E5397;
+    color: #FFFFFF;
+    border-radius: 20px;
+    width: 500px;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+}

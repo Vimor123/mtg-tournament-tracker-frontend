@@ -1,0 +1,17 @@
+.player-container {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    background-color: #7E5397;
+    border-radius: 20px;
+    width: 350px;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-self: center;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.name-surname {
+    color: #340F4A;
+}

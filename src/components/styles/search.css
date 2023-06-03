@@ -1,0 +1,19 @@
+.result-box {
+    margin-top: 1em;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+}
+
+.look-icon {
+    border-radius: 15px;
+}
+
+.look-icon-image {
+    width: 30px;
+    height: 30px;
+}
+
+.player-container {
+    align-items: center;
+}
