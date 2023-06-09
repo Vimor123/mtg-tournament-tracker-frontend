@@ -1,16 +1,14 @@
 import { Navbar } from "../navbar";
-import "../styles/login.css";
-import "../styles/search.css";
-import "../styles/players.css";
 import React from "react";
 import { ReactSession }  from 'react-client-session';
+import { useNavigate } from "react-router-dom";
 
-function PlayerSearch() {
+function NewLeague() {
     ReactSession.setStoreType("localStorage");
+    
+    const navigate = useNavigate();
 
-    const [form, setForm] = React.useState({ username: '' });
-
-    const [players, setPlayers] = React.useState([]);
+    const [form, setForm] = React.useState({ nameleague : "", leaguestart : ""});
 
     const [navbar, setNavbar] = React.useState({"user" : "unregistered"});
 
@@ -33,9 +31,11 @@ function PlayerSearch() {
                 if (response.status === 200) {
                     let navbar_object = {"user" : "player"}
                     setNavbar(navbar_object);
+                    return response.json();
                 } else {
                     let navbar_object = {"user" : "unregistered"}
                     setNavbar(navbar_object);
+                    navigate("/leagues");
                 }
             })
     }, []);
@@ -47,22 +47,34 @@ function PlayerSearch() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        fetch(`/api/player/search/${form.username}`)
+        const data = {
+            "login" : {
+                "username" : ReactSession.get("username"),
+                "password" : ReactSession.get("password")
+            },
+            "nameleague" : form.nameleague,
+            "leaguestart" : form.leaguestart
+        };
+        const options = {
+            method:'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        };
+        fetch("/api/league/create", options)
             .then( response => {
                 if (response.ok) {
-                    return response.json();
+                    navigate("/leagues");
+                } else {
+                    alert(response.json.message);
                 }
-            })
-            .then( response => {
-                setPlayers(response);
-                
-                console.log(response);
             });
     }
 
     function isValid() {
-        const {username} = form;
-        return form.username.length > 0;
+        const {nameleague, leaguestart} = form;
+        return form.nameleague.length > 0 && form.leaguestart.length > 0;
     }
 
     return (
@@ -70,36 +82,27 @@ function PlayerSearch() {
             <Navbar navbar = {navbar} />
             <div>
                 <h2 className="login-title">
-                    Search players by username
+                    New league
                 </h2>
             </div>
-            <div className="search" onSubmit={handleSubmit}>
+            <div className="new-league" onSubmit={handleSubmit}>
                 <form>
-                    <div className="form-field">
-                        <input type="text" name="username" placeholder="Username" onChange={onChange} value={form.username} required/>
+                    <div class="form-field">
+                        <input type="text" name="nameleague" placeholder="League name" onChange={onChange} value={form.nameleague} required/>
+                    </div>
+
+                    <div class="form-field">
+                        <p> Start date </p>
+                        <input type="date" name="leaguestart" onChange={onChange} value={form.leaguestart} required/>
                     </div>
 
                     <div>
-                        <button className="btn" type="submit" disabled={!isValid()}> Search </button>
+                        <button class="btn" type="submit" disabled={!isValid()}> Add new league </button>
                     </div>
                 </form>
-            </div>
-            <div className="result-box">
-                <h2>
-                    Players:
-                </h2>
-                {players.map( player => (
-                    <div className="player-container">
-                        <p> {player.username} </p>
-                        <p className="name-surname"> {player.name + " " + player.surname} </p>
-                        <a className="look-icon" href={"/player/" + player.idplayer}>
-                            <img className="look-icon-image" src="/search-icon.png" alt="look"/>
-                        </a>
-                    </div>
-                ))}
             </div>
         </div>
     );
 }
 
-export {PlayerSearch};
+export {NewLeague};

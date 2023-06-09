@@ -1,16 +1,16 @@
 import { Navbar } from "../navbar";
 import "../styles/login.css";
 import "../styles/search.css";
-import "../styles/players.css";
+import "../styles/decks.css";
 import React from "react";
 import { ReactSession }  from 'react-client-session';
 
-function PlayerSearch() {
+function DeckSearch() {
     ReactSession.setStoreType("localStorage");
 
-    const [form, setForm] = React.useState({ username: '' });
+    const [form, setForm] = React.useState({ deckname: '' });
 
-    const [players, setPlayers] = React.useState([]);
+    const [decks, setDecks] = React.useState([]);
 
     const [navbar, setNavbar] = React.useState({"user" : "unregistered"});
 
@@ -47,22 +47,22 @@ function PlayerSearch() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        fetch(`/api/player/search/${form.username}`)
+        fetch(`/api/deck/search/${form.deckname}`)
             .then( response => {
                 if (response.ok) {
                     return response.json();
                 }
             })
             .then( response => {
-                setPlayers(response);
+                setDecks(response);
                 
                 console.log(response);
             });
     }
 
     function isValid() {
-        const {username} = form;
-        return form.username.length > 0;
+        const {deckname} = form;
+        return form.deckname.length > 0;
     }
 
     return (
@@ -70,13 +70,13 @@ function PlayerSearch() {
             <Navbar navbar = {navbar} />
             <div>
                 <h2 className="login-title">
-                    Search players by username
+                    Search decks by deck type
                 </h2>
             </div>
             <div className="search" onSubmit={handleSubmit}>
                 <form>
                     <div className="form-field">
-                        <input type="text" name="username" placeholder="Username" onChange={onChange} value={form.username} required/>
+                        <input type="text" name="deckname" placeholder="Deck type" onChange={onChange} value={form.deckname} required/>
                     </div>
 
                     <div>
@@ -86,15 +86,34 @@ function PlayerSearch() {
             </div>
             <div className="result-box">
                 <h2>
-                    Players:
+                    Decks:
                 </h2>
-                {players.map( player => (
-                    <div className="player-container">
-                        <p> {player.username} </p>
-                        <p className="name-surname"> {player.name + " " + player.surname} </p>
-                        <a className="look-icon" href={"/player/" + player.idplayer}>
-                            <img className="look-icon-image" src="/search-icon.png" alt="look"/>
-                        </a>
+                <div className="deck-container" id="start-row">
+                    <p className="deck-container-item"> Deck </p>
+                    <p className="deck-container-item"> Colors </p>
+                    <p className="deck-container-item"> Deck type </p>
+                    <p className="deck-container-item"> Type colors </p>
+                    <p className="deck-container-item"> </p>
+                </div>
+                {decks.map( deck => (
+                    <div className="deck-container">
+                        <p className="deck-container-item"> {deck.nameDeck} </p>
+                        <div className="colors-container">
+                            {deck.colors.map ( color => (
+                                <img className="mana-symbol" src={"/mana_symbols/" + color.namecolor + ".png"} alt="Mana Symbol"/>
+                            ))}
+                        </div>
+                        <p className="deck-container-item"> {deck.decktype.namedecktype} </p>
+                        <div className="colors-container">
+                            {deck.decktype.decktypecolors.map ( color => (
+                                <img className="mana-symbol" src={"/mana_symbols/" + color.namecolor + ".png"} alt="Mana Symbol"/>
+                            ))}
+                        </div>
+                        <div className="deck-container-item">
+                            <a className="look-icon" href={"/deck/" + deck.iddeck}>
+                                <img className="look-icon-image" src="/search-icon.png" alt="look"/>
+                            </a>
+                        </div>
                     </div>
                 ))}
             </div>
@@ -102,4 +121,4 @@ function PlayerSearch() {
     );
 }
 
-export {PlayerSearch};
+export {DeckSearch};

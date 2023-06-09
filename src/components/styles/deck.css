@@ -1,0 +1,81 @@
+.deck-header {
+    display: flex;
+    flex-flow: row;
+}
+
+h2 {
+    width: fit-content;
+    margin: 40px;
+}
+
+h3.deck-subtitle {
+    width: fit-content;
+    margin: 20px;
+    margin-left: 40px;
+}
+
+.decktype-header {
+    display: flex;
+    flex-flow: row;
+}
+
+.player-link {
+    background-color: #404040;
+    color: #7E5397;
+}
+
+.player-link:visited {
+    background-color: #404040;
+    color: #7E5397;
+}
+
+.player-link:hover {
+    color: #623D77;
+    background-color: #404040;
+}
+
+.card-box {
+    display: flex;
+    flex-flow: row;
+}
+
+.card-column {
+    width: 33%;
+    display: flex;
+    flex-flow: column;
+}
+
+.card-container {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.card-title {
+    margin: 0;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.manacosts-container {
+    align-items: center;
+    display: flex;
+    flex-flow: row;
+}
+
+.manacost-container {
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+.mana-symbol-small {
+    width: 20px;
+    height: 20px;
+}
+
+.stats-box {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+}

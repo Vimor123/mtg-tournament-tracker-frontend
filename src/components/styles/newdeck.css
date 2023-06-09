@@ -1,0 +1,102 @@
+.decktype-select {
+    color: #FFFFFF;
+    font-size: medium;
+    background-color: #7E5397;
+    border: 4px solid #7E5397;
+    border-radius: 20px;
+}
+
+.btn-box {
+    margin-top: 40px;
+}
+
+.new-deck-subtitle {
+    font-size: 2em;
+}
+
+.color-symbol {
+    height: 30px;
+    width: 30px;
+}
+
+.colors-container {
+    display: flex;
+    flex-flow: row;
+}
+
+.color-container {
+    display: flex;
+    flex-flow: column;
+}
+
+.card-mini-container {
+    display: flex;
+    flex-flow: row;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #7E5397;
+    border-radius: 15px;
+    justify-content: space-between;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.mini-form {
+    display: flex;
+    flex-flow: row;
+    background-color: #7E5397;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.mini-form-field {
+    color: #000000;
+    font-size: 0.5em;
+    border-radius: 15px;
+}
+
+input[type=text].card-name-field {
+    width: 300px;
+}
+
+input[type=number].quantity-field {
+    width: 40px;
+    font-size: 2em;
+}
+
+.add-btn {
+    font-size: 1em;
+    background-color: #7E5397;
+    border: none;
+    border-radius: 15px;
+    margin-left: 20px;
+    color: #FFFFFF;
+}
+
+.add-btn:hover {
+    background-color: #623D77;
+    transition: background 0.5s ease-out;
+}
+
+.trash-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.delete-btn {
+    background-color: #7E5397;
+    border: none;
+    border-radius: 15px;
+}
+
+.delete-btn:hover {
+    background-color: #623D77;
+    transition: background 0.5s ease-out;
+}

@@ -1,0 +1,45 @@
+.deck-container {
+    display: flex;
+    flex-flow: row;
+    margin: 40px;
+    justify-content: space-between;
+    background-color: #7E5397;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#start-row {
+    background-color: #623D77;
+}
+
+.deck-container-item {
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.colors-container {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.mana-symbol {
+    height: 30px;
+    width: 30px;
+}
+
+.look-icon-image {
+    height: 30px;
+    width: 30px;
+}
+
+.look-icon {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+}

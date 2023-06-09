@@ -51,6 +51,9 @@ function Register() {
                 <h2 className="login-title">
                     Register
                 </h2>
+                <p className="intro-element">
+                    Please enter your user credentials.
+                </p>
             </div>
             <div className="register" onSubmit={handleSubmit}>
                 <form>
@@ -63,11 +66,11 @@ function Register() {
                     </div>
 
                     <div class="form-field">
-                        <input type="text" name="name" placeholder="Name" onChange={onChange} value={form.email} required/>
+                        <input type="text" name="name" placeholder="Name" onChange={onChange} value={form.name} required/>
                     </div>
 
                     <div class="form-field">
-                        <input type="text" name="surname" placeholder="Surname" onChange={onChange} value={form.email} required/>
+                        <input type="text" name="surname" placeholder="Surname" onChange={onChange} value={form.surname} required/>
                     </div>
 
                     <div>

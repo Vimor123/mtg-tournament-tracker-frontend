@@ -13,6 +13,7 @@ function Player() {
     const [decks, setDecks] = React.useState([]);
 
     const params = useParams();
+    
 
     React.useEffect(() =>{
         var username = ReactSession.get("username");
@@ -113,7 +114,7 @@ function Player() {
                         ))}
                     </div>
                     <div className="deck-container-item">
-                        <a className="look-icon" href="/">
+                        <a className="look-icon" href={"/deck/" + deck.iddeck}>
                             <img className="look-icon-image" src="/search-icon.png" alt="look"/>
                         </a>
                     </div>

@@ -27,6 +27,16 @@ input[type=password] {
     padding-right: 20px;
 }
 
+input[type=date] {
+    border: 4px solid #7E5397;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    width: 460px;
+    font-size: 2em;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 .btn {
     font-size: 2em;
     border: 4px solid #7E5397;
@@ -38,4 +48,37 @@ input[type=password] {
 
 .btn:disabled {
     opacity: 0.6;
+}
+
+select.decktype-select {
+    border: 4px solid #7E5397;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    width: 460px;
+    font-size: 2em;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #000000;
+}
+
+select.format-select {
+    border: 4px solid #7E5397;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    width: 460px;
+    font-size: 2em;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #000000;
+}
+
+select.deck-select {
+    border: 4px solid #7E5397;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    width: 460px;
+    font-size: 2em;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #000000;
 }

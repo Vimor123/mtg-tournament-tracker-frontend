@@ -30,9 +30,10 @@
 
 .deck-container-item {
     width: 20%;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     display: flex;
+    flex-flow: row;
 }
 
 .colors-container {
@@ -67,4 +68,21 @@
     margin: 10px;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.delete-icon-image {
+    height: 25px;
+    width: 25px;
+}
+
+.delete-btn {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+}
+
+.delete-btn:hover {
+    background-color: #623D77;
+    transition: background 0.5s ease-out;
 }

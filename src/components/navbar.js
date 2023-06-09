@@ -9,6 +9,12 @@ function Navbar(props) {
                 <a className="nav-element" href="/">
                     <h3> Home </h3>
                 </a>
+                <a className="nav-element" href="/leagues">
+                    <h3> Leagues </h3>
+                </a>
+                <a className="nav-element" href="/decks">
+                    <h3> Decks </h3>
+                </a>
                 <a className="nav-element" href="/players">
                     <h3> Players </h3>
                 </a>
@@ -26,6 +32,12 @@ function Navbar(props) {
                 <a className="nav-element" href="/">
                     <h3> Home </h3>
                 </a>
+                <a className="nav-element" href="/leagues">
+                    <h3> Leagues </h3>
+                </a>
+                <a className="nav-element" href="/decks">
+                    <h3> Decks </h3>
+                </a>
                 <a className="nav-element" href="/players">
                     <h3> Players </h3>
                 </a>
@@ -42,6 +54,12 @@ function Navbar(props) {
             <nav className="navbar">
                 <a className="nav-element" href="/">
                     <h3> Home </h3>
+                </a>
+                <a className="nav-element" href="/leagues">
+                    <h3> Leagues </h3>
+                </a>
+                <a className="nav-element" href="/decks">
+                    <h3> Decks </h3>
                 </a>
                 <a className="nav-element" href="/players">
                     <h3> Players </h3>

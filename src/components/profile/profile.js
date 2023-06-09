@@ -13,6 +13,23 @@ function Profile() {
     const [player, setPlayer] = React.useState({});
     const [decks, setDecks] = React.useState([]);
 
+    function deleteDeck(event, deck) {
+        event.preventDefault();
+
+        fetch("/api/deck/delete/" + deck.iddeck)
+            .then( response => {
+                if (response.ok) {
+                    alert("Deck deleted")
+                } else {
+                    alert("Error while deleting deck")
+                }
+            })
+
+        let newDecks = [...decks];
+        newDecks.splice(newDecks.indexOf(deck), 1);
+        setDecks(newDecks);
+    }
+
     React.useEffect(() => {
         var username = ReactSession.get("username");
         var password = ReactSession.get("password");
@@ -110,12 +127,18 @@ function Profile() {
                         ))}
                     </div>
                     <div className="deck-container-item">
-                        <a className="look-icon" href="/">
+                        <a className="look-icon" href={"/deck/" + deck.iddeck}>
                             <img className="look-icon-image" src="/search-icon.png" alt="look"/>
                         </a>
+                        <button className="delete-btn" onClick={event => deleteDeck(event, deck)}>
+                            <img className="delete-icon-image" src="/trash-icon.png" alt="trash"/>
+                        </button>
                     </div>
                 </div>
             ))}
+            <a className="edit-profile-btn" href="/newdeck">
+                <p> Add new deck </p>
+            </a>
         </div>
     );
 }
