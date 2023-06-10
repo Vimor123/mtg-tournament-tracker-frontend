@@ -14,7 +14,7 @@ const { API_BASE_URL } = process.env;
 app.use(
     "/api",
     createProxyMiddleware({
-        target: "http://localhost:8080/",
+        target: "https://mtg-tournament-tracker-backend.onrender.com",
         changeOrigin: true,
     })
 );
